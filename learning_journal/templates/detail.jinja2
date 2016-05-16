@@ -1,0 +1,26 @@
+{% extends "layout.jinja2" %}
+{% block body %}
+
+<h2><font color="#ff0000"><i>Existing Journal Entry</i></font></h2>
+<hr/>
+
+<article>
+  <p><i>Title:</i> {{ entry.title }}</p>
+  <hr/>
+  <p><i>Body:</i> {{ entry.body }}</p>
+  <hr/>
+  <i>Created:</i> {{entry.created}}
+  <br />
+  <i>Edited:</i> {{entry.edited}}
+  <br />
+</article>
+
+<hr/>
+<p>
+  <i>To return to home, click: </i>
+  <a href="{{ request.route_url('home') }}">Home</a>
+  <br />
+  <i>To edit this entry, click: </i>
+  <a href="{{ request.route_url('action', action='edit', _query=(('id',entry.id),)) }}">Edit Entry</a>
+</p>
+{% endblock %}
